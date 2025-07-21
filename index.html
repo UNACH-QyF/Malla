@@ -157,7 +157,8 @@
       gap: 15px;
     }
     #header-left img {
-      height: 65px; /* Logo más grande */
+      height: 60px; /* Logo más grande */
+      width: auto;
     }
     #malla-link a {
       color: var(--accent);
@@ -316,7 +317,7 @@
 
     /* BARRA SECUNDARIA */
     #topbar {
-      display: flex; align-items: center; justify-content: space-between;
+      display: flex; align-items: center; justify-content: center; /* Centered items */
       padding: 8px 20px; background: var(--accent);
       color: #fff; position: sticky; top: 105px; /* Adjust for new header height */
       z-index: 900;
@@ -375,7 +376,7 @@
     #topbar-controls {
       display: flex; align-items: center; gap: 12px;
       flex-wrap: wrap; /* Allow controls to wrap */
-      justify-content: flex-end; /* Align to the right */
+      justify-content: center; /* Center controls */
       flex-grow: 1; /* Allow controls to take available space */
     }
     #topbar-controls input[type="text"],
@@ -821,7 +822,7 @@
       border-radius: 5px;
       cursor: pointer;
       font-weight: 600;
-      transition: background-color 0.2s ease;
+      transition: background-color 0.2s;
     }
 
     .modal-buttons .btn-aprobado {
@@ -1133,17 +1134,6 @@
           </ul>
         </div>
       </details>
-
-      <div class="calc-box">
-        <a href="https://calculatodo.com/calcular-promedio-ponderado-notas" target="_blank">
-          Calcular mi nota para aprobar
-        </a>
-      </div>
-      <div class="calc-box">
-        <a href="https://escaladenotas.cl/" target="_blank">
-          Calcular nota según puntaje
-        </a>
-      </div>
     </div>
   </div>
 
@@ -1177,6 +1167,16 @@
         <div class="widget-card">
           <h4>Google Académico</h4>
           <a href="https://scholar.google.es/?hl=es" target="_blank">Buscar Artículos</a>
+        </div>
+        <div class="widget-card calc-box">
+            <a href="https://calculatodo.com/calcular-promedio-ponderado-notas" target="_blank">
+            Calcular mi nota para aprobar
+            </a>
+        </div>
+        <div class="widget-card calc-box">
+            <a href="https://escaladenotas.cl/" target="_blank">
+            Calcular nota según puntaje
+            </a>
         </div>
         <details class="widget-card" id="calendar-widget">
           <summary><h4>Calendario</h4></summary>
