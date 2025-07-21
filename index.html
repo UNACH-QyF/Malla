@@ -140,47 +140,48 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 10px 25px;
+      padding: 15px 30px;
       background: var(--card);
       color: var(--text);
       position: sticky;
       top: 0;
       z-index: 1000;
       box-shadow: 0 2px 8px var(--shadow);
+      border-bottom: 4px solid var(--accent);
       flex-wrap: wrap;
-      gap: 15px;
+      gap: 20px;
     }
     #header-left {
       display: flex;
       align-items: center;
       gap: 15px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      padding: 10px 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
     #header-left img {
-      height: 50px; /* Logo más grande */
+      height: 65px; /* Logo más grande */
     }
     #malla-link a {
-      color: #fff;
+      color: var(--accent);
       font-weight: 600;
       text-decoration: none;
       padding: 8px 12px;
-      background: rgba(255,255,255,0.2);
+      background: var(--ramo-bg);
       border-radius: 8px;
-      transition: background .2s;
+      transition: background .2s, color .2s;
       font-size: 0.9em;
     }
-    #malla-link a:hover { background: rgba(255,255,255,0.4); }
+    #malla-link a:hover { 
+      background: var(--accent);
+      color: #fff;
+    }
     
     #header-title {
         font-family: 'Playfair Display', serif;
-        font-size: 1.8em;
+        font-size: 2.2em;
         font-weight: 700;
         text-align: center;
         flex-grow: 1;
         color: var(--accent);
+        line-height: 1.2;
     }
     #unach-qf-link {
         color: inherit;
@@ -188,7 +189,7 @@
     }
     #university-name {
         display: block;
-        font-size: 0.6em;
+        font-size: 0.5em;
         font-weight: 600;
         color: var(--text);
         margin-top: 4px;
@@ -317,7 +318,7 @@
     #topbar {
       display: flex; align-items: center; justify-content: space-between;
       padding: 8px 20px; background: var(--accent);
-      color: #fff; position: sticky; top: 88px; /* Adjust for new header height */
+      color: #fff; position: sticky; top: 105px; /* Adjust for new header height */
       z-index: 900;
       box-shadow: 0 2px 4px var(--shadow);
       font-size: .9em;
