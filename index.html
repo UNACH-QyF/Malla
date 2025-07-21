@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Malla Interactiva QyF UNACH</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap');
 
     /* Base/Default (Light) Theme */
     :root {
@@ -157,7 +157,7 @@
       gap: 15px;
     }
     #header-left img {
-      height: 60px; /* Logo más grande */
+      height: 70px; /* Logo más grande */
       width: auto;
     }
     #malla-link a {
@@ -198,20 +198,32 @@
     }
 
     #header-right {
-      display: flex; align-items: center; gap: 12px;
+      display: flex; align-items: center; gap: 15px;
       font-size: .9em;
       flex-wrap: wrap;
       justify-content: flex-end;
     }
+    
+    /* --- Clock Redesign --- */
     #clock {
-      padding: 8px 12px;
-      background: var(--ramo-bg);
-      border-radius: 8px;
-      font-family: monospace;
-      min-width: 120px;
-      text-align: center;
-      font-weight: 600;
+        background: var(--ramo-bg);
+        border-radius: 8px;
+        padding: 8px 15px;
+        text-align: center;
+        transition: background-color 0.3s;
     }
+    #clock .time {
+        font-family: monospace;
+        font-size: 1.4em;
+        font-weight: 700;
+        color: var(--accent);
+    }
+    #clock .date {
+        font-size: 0.8em;
+        font-weight: 600;
+        opacity: 0.7;
+    }
+
     #theme-selector {
         padding: 8px 10px;
         border: 1px solid #ccc;
@@ -324,7 +336,7 @@
       box-shadow: 0 2px 4px var(--shadow);
       font-size: .9em;
       flex-wrap: wrap; /* Allow items to wrap on smaller screens */
-      gap: 10px; /* Space between topbar items */
+      gap: 15px; /* Increased gap */
     }
 
     /* Combined Info Section */
@@ -374,7 +386,7 @@
 
 
     #topbar-controls {
-      display: flex; align-items: center; gap: 12px;
+      display: flex; align-items: center; gap: 15px; /* Increased gap */
       flex-wrap: wrap; /* Allow controls to wrap */
       justify-content: center; /* Center controls */
       flex-grow: 1; /* Allow controls to take available space */
@@ -524,6 +536,17 @@
 
     .widget-card a:hover {
       background: #0d47a1;
+    }
+    
+    /* --- Style for calculator links in widgets --- */
+    .widget-card.calc-box a {
+        background: none;
+        color: var(--accent);
+        font-weight: 600;
+        padding: 0;
+    }
+    .widget-card.calc-box a:hover {
+        text-decoration: underline;
     }
 
     /* Calendar Widget Specific Styles */
@@ -729,20 +752,7 @@
       to   { box-shadow: 0 0 10px rgba(255,215,0,1); }
     }
     .empty { visibility: hidden; }
-    /* INFO Y CALCULADORAS */
-    .calc-box {
-      background: var(--card);
-      padding: 8px 12px;
-      margin: 8px 0;
-      border-radius: 4px;
-      box-shadow: 0 1px 3px var(--shadow);
-    }
-    .calc-box a {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 600;
-    }
-
+    
     /* Estilos para los Modales */
     .modal-backdrop {
       position: fixed;
@@ -1847,8 +1857,9 @@
     
     function updateClock(){
       const now = new Date();
-      const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
-      clk.textContent = now.toLocaleDateString('es-ES', options);
+      const timeString = now.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+      const dateString = now.toLocaleDateString('es-ES', { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' });
+      clk.innerHTML = `<div class="time">${timeString}</div><div class="date">${dateString}</div>`;
     }
     setInterval(updateClock,1000);
     updateClock();
